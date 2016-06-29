@@ -1,0 +1,24 @@
+<div>
+
+	<h4>What do you want to study?</h4>
+
+	<div class="btn-group">
+	</div>
+	<label ng-repeat="item in itemArray | unique: 'category'" class="btn btn-primary categories" ng-model="checkbox[item.category]" uib-btn-checkbox>{{item.category}}</label>
+
+
+
+	<div ng-repeat="item in itemArray | categorySelected:checkbox as filteredCards">
+		<div class="card" ng-show="$index == indexToShow">
+			<h3>
+				{{item.question}}
+			</h3>
+			<h3 ng-show="answerShown">
+				{{item.answer}}
+			</h3>
+			<button type="button" class="btn btn-default" ng-show="!answerShown" ng-click="answerShown=true">Show Answer</button>
+			<button class="btn btn-default" ng-show="answerShown" ng-click="answerShown=false;nextCard()">Next Question</button>
+		</div>
+	</div>
+</div>
+

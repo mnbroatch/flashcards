@@ -14,8 +14,12 @@ angular.module('appName')
 		console.log(err);
 	});
 
+});
 
 
+
+angular.module('appName')
+.controller('managerController', function($scope,$http,itemService) {
 	$scope.addOneItem = function(item){
 		itemService.addOne(item)
 		.then( function(newItem){
@@ -37,7 +41,6 @@ angular.module('appName')
 		});
 	}
 
-	//  assumes uuid that doesn't change on edit
 	$scope.editOneItem = function(editedItem,itemToEdit){
 		let index = $scope.itemArray.indexOf(itemToEdit);
 		editedItem._id = itemToEdit._id;
@@ -49,9 +52,19 @@ angular.module('appName')
 			console.log(err);
 		});
 	}
-
-
 });
 
+
+
+angular.module('appName')
+.controller('gameController', function($scope,$http,itemService) {
+	$scope.indexToShow = 0
+	$scope.checkbox = {};
+	$scope.filteredCards = [];
+
+	$scope.nextCard = function(){
+		$scope.indexToShow = ($scope.indexToShow + 1) % $scope.filteredCards.length;
+	}
+});
 
 

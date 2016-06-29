@@ -1,3 +1,7 @@
+tr>td {
+	vertical-align:middle !important;
+}
+
 .buttons-cell {
 	text-align:right;	
 }
@@ -5,3 +9,13 @@
 .table-container {
 	margin-top:50px;
 }
+
+.navigation {
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.categories {
+	margin-bottom:30px;
+}
+

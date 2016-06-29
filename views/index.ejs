@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>CRUD</title>
+		<title>Flashcard Manager</title>
 		<meta charset="UTF-8">
 
 		<script src="/bower_components/jquery/dist/jquery.js"></script>
 		<script src="/bower_components/angular/angular.js"></script>
 		<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+
 
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script> 
 		<script src="/bower_components/bootstrap/js/button.js"></script>
@@ -16,6 +18,7 @@
 		<script src="/js/module.js"></script>
 		<script src="/js/controllers.js"></script>
 		<script src="/js/services.js"></script>
+		<script src="/js/live.js"></script>
 
 		<link rel="stylesheet" href="/css/style.css" media="all"> 
 	</head>
@@ -23,28 +26,14 @@
 	<body ng-app="appName" ng-controller="mainController">
 		<div class="container">
 
-			<h1>CRUD</h1>
 
-
-			<div class="row">
-				<div class="col-sm-6">
-
-					<form ng-submit='addOneItem(newItem)'>
-						<div class="form-group">
-							<label>Item Name</label>
-							<input class="form-control" type="text" placeholder="Name of Item" ng-model='newItem.name' required>
-						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</form>
-
-				</div>
+			<div class="btn-group navigation">
+				<label class="btn btn-primary" ui-sref="manager" ng-model="destination" uib-btn-radio="'Manager'">Card Manager</label>
+				<label class="btn btn-primary" ui-sref="game" ng-model="destination" uib-btn-radio="'Study'">Study</label>
 			</div>
 
 
-			<div class="table-container">
-				<ui-view></ui-view>
-			</div>
-
+			<ui-view></ui-view>
 
 		</div>
 	</body>
